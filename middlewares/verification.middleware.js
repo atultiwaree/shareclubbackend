@@ -7,8 +7,8 @@ const verifyMid = async (req, res, next) => {
     const tokenData = utils.verifyToken(req.headers.token);
     if (tokenData) {
       const userDetailFromDB = await userModel.findById({ _id: req.params.id });
-      if (userDetailFromDB.uid === tokenData.guid) {
-        if (userDetailFromDB.deviceId === tokenData.deviceId) {
+      if (userDetailFromDB?.uid === tokenData?.guid) {
+        if (userDetailFromDB?.deviceId === tokenData?.deviceId) {
           req.user = userDetailFromDB;
 
           next();

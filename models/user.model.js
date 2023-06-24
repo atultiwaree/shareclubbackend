@@ -3,27 +3,27 @@ const mongoose = require("mongoose");
 const userSchema = mongoose.Schema({
   uid: {
     type: String,
-    require: true,
+    required: true,
   },
   name: {
     type: String,
-    require: true,
+    required: true,
   },
   email: {
     type: String,
-    require: true,
+    required: true,
   },
   picture: {
     type: String,
-    require: true,
+    required: true,
   },
   deviceId: {
     type: String,
-    require: true,
+    required: true,
   },
   deviceModel: {
     type: String,
-    require: true,
+    required: true,
   },
   verificationDocs: [
     {
@@ -44,6 +44,10 @@ const userSchema = mongoose.Schema({
   verification: {
     type: Boolean,
     default: false,
+  },
+  typeOfUser: {
+    type: String,
+    default: "general",
   },
   active: {
     type: Boolean,
