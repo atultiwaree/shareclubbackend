@@ -20,5 +20,11 @@ const messageObject = {
   //!REquest
   userNotExist: "User not exist",
   addedRequestSuccessfully: "Your request was added successfully",
+
+  //!Dummy
+  isRequired: "is required field",
+
+  //!Product
+  productListedSuccessfully: "Product listed successfully",
 };
 module.exports = messageObject;

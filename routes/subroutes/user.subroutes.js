@@ -17,10 +17,13 @@ routes.post("/", (req, res) => {
 
 //Gonna be used routes
 routes.post("/googleauth/:uid", goThroughTryCatchMiddleware(userController.googleAuth));
+
 routes.post("/verify/:id", verfifyMiddleware, uploads.array("verificationMedia"), goThroughTryCatchMiddleware(userController.verifyAccount));
+
 routes.get("/status/:id", verfifyMiddleware, goThroughTryCatchMiddleware(userController.accountActiveStatus));
+
 routes.post("/requirement/:id", verfifyMiddleware, goThroughTryCatchMiddleware(userController.requiremtnFeeder));
 
-routes.post("/test", uploads.array("verificationMedia"), goThroughTryCatchMiddleware(userController.test));
+// routes.post("/test", uploads.array("verificationMedia"), goThroughTryCatchMiddleware(userController.test));
 
 module.exports = routes;

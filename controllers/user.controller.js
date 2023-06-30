@@ -1,14 +1,23 @@
 const messageObject = require("../helpers/messageConstants.helper");
 const utils = require("../helpers/utility.helper");
 const { userModel } = require("../models/user.model");
+const { reqModel } = require("../models/requirement.model");
 
 //OAuth Purpose
 const admin = require("firebase-admin");
 const serviceAccount = require("../credentials.json");
-const { reqModel } = require("../models/requirement.model");
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
 });
+
+// module.exports.test = async (req, res) => {
+//   console.log("Request Body", req.body.whatsappNumber);
+//   console.log("Request Files", req.files);
+//   console.log("Request USer", req.headers.token);
+//   let x = utils.verifyToken(req.headers.token, process.env.SECRET_KEY);
+//   console.log("XXXXXXXXXXXXXXX", x);
+//   return res.json(utils.createSuccessResponse("fuck"));
+// };
 
 module.exports.googleAuth = async (req, res) => {
   if (req.params) {
@@ -84,13 +93,4 @@ module.exports.requiremtnFeeder = async (req, res) => {
       } else return res.status(400).json(utils.createErrorResponse("Whatsapp number is required field"));
     } else return res.status(400).json(utils.createErrorResponse("Requiremen is required field"));
   } else return res.status(404).json(utils.createErrorResponse(messageObject.userNotExist));
-};
-
-module.exports.test = async (req, res) => {
-  console.log("Request Body", req.body.whatsappNumber);
-  console.log("Request Files", req.files);
-  console.log("Request USer", req.headers.token);
-  let x = utils.verifyToken(req.headers.token, process.env.SECRET_KEY);
-  console.log("XXXXXXXXXXXXXXX", x);
-  return res.json(utils.createSuccessResponse("fuck"));
 };

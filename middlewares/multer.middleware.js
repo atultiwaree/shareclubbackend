@@ -3,7 +3,9 @@ const multer = require("multer");
 const upload = multer({
   storage: multer.diskStorage({
     destination: (req, file, cb) => {
-      cb(null, "public");
+      if (file.fieldname === "productImages") {
+        cb(null, "public/productImages");
+      } else cb(null, "public");
     },
     filename: (req, file, cb) => {
       cb(null, file.originalname);
