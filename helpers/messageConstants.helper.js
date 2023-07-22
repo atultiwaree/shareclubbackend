@@ -10,6 +10,7 @@ const messageObject = {
   tokenRequired: "Please provide token",
   somethingWentWrong: "Something went wrong",
   sessionExpired: "Session expired please login again.",
+  inValidUserId: "Invalid user id, | Session expired",
 
   //!Verificaiton
 
@@ -26,5 +27,6 @@ const messageObject = {
 
   //!Product
   productListedSuccessfully: "Product listed successfully",
+  productTypeNotMatched: "Product type old, new, rental does not match.",
 };
 module.exports = messageObject;

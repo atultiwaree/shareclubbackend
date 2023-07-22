@@ -9,13 +9,17 @@ const PORT = process.env.PORT || 3000;
 
 require("dotenv").config();
 
+app.use("/public", express.static("./public"));
+app.use("/public", express.static("./public/productImages"));
+
 app.use(morgan("tiny"));
 app.use(express.json());
+
 app.use(express.urlencoded({ extended: false }));
 
 const indexRoute = require("./routes/index.routes");
 
-// app.get("/", (req, res) => res.status(200).json({ status: "Working fine!" }));
+app.get("/", (req, res) => res.status(200).json({ status: "Working fine!" }));
 
 app.use("/api/v1", indexRoute);
 

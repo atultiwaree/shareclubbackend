@@ -79,7 +79,7 @@ module.exports.accountActiveStatus = async (req, res) => {
   return res.status(200).json(utils.createSuccessResponse(messageObject.accountStatus, { active: req.user.active }));
 };
 
-module.exports.requiremtnFeeder = async (req, res) => {
+module.exports.requirementFeeder = async (req, res) => {
   const findUser = await userModel.findById({ _id: req.params.id });
   if (findUser) {
     if (req.body?.requirement) {

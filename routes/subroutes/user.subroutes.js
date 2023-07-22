@@ -22,7 +22,7 @@ routes.post("/verify/:id", verfifyMiddleware, uploads.array("verificationMedia")
 
 routes.get("/status/:id", verfifyMiddleware, goThroughTryCatchMiddleware(userController.accountActiveStatus));
 
-routes.post("/requirement/:id", verfifyMiddleware, goThroughTryCatchMiddleware(userController.requiremtnFeeder));
+routes.post("/requirement/:id", verfifyMiddleware, goThroughTryCatchMiddleware(userController.requirementFeeder));
 
 // routes.post("/test", uploads.array("verificationMedia"), goThroughTryCatchMiddleware(userController.test));
 
